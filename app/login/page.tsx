@@ -15,12 +15,18 @@ function LoginForm() {
   const redirect = searchParams.get('redirect') || '/';
 
   useEffect(() => {
-    setIsVisible(true);
-    const user = getUser();
-    if (user) {
-      router.push(redirect);
-    }
-  }, [redirect, router]);
+  setIsVisible(true);
+
+  const user = getUser();
+  if (!user) return;
+
+  // Prevent infinite redirect loop
+  if (redirect && redirect !== "/login") {
+    router.replace(redirect);
+  } else {
+    router.replace("/");
+  }
+}, [redirect, router]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
