@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  /* Professional Color Palette - Clean & Modern */
+  --color-forest-dark: #1a4d3e;
+  --color-forest-medium: #2d6a4f;
+  --color-forest-light: #52b788;
+  --color-sage: #74c69d;
+  --color-mint: #95d5b2;
+  --color-seafoam: #b7e4c7;
+  --color-ocean-dark: #1b4965;
+  --color-ocean-medium: #2d6a8f;
+  --color-ocean-light: #5fa8d3;
+  --color-neutral-dark: #2b2d42;
+  --color-neutral-medium: #4a4e69;
+  --color-neutral-light: #8d99ae;
+  --color-beige: #f8f6f1;
+  --color-mint-bg: #f1f8f5;
+  --color-cream: #fefefe;
+  --color-accent-orange: #ee6c4d;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8f6f1;
+}
+
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  padding: 2rem;
+  transition: all 0.3s;
+  border: 1px solid rgba(149, 213, 178, 0.15);
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
+  transform: translateY(-4px);
+}
+
+.btn-primary {
+  background-color: #2d6a4f;
+  color: white;
+  font-weight: 600;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #1a4d3e;
+  box-shadow: 0 10px 20px -5px rgb(45 106 79 / 0.3);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fadeInUp-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fadeInUp-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-fadeInUp-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
