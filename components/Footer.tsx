@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 italic text-seafoam">Community Hub</h3>
+            <h3 className="text-2xl font-bold mb-4 italic text-seafoam">BergenConnect</h3>
             <p className="text-mint/80 mb-6 leading-relaxed">
               Connecting residents with essential services, support programs, and
               community resources to build a stronger, more informed community.

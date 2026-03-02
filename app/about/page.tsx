@@ -27,13 +27,13 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-forest-dark mb-6">Our Story</h2>
           <div className="space-y-4 text-neutral-medium leading-relaxed text-lg">
             <p>
-              Community Hub was born from a simple observation: too many residents in Bergen County didn't know where to turn when they needed help. Valuable resources existed, but finding them was like searching for a needle in a haystack.
+              BergenConnect was created from a simple observation: too many residents in Bergen County didn't know where to turn when they needed help. Valuable resources existed throughout the county, but finding them was like searching for a needle in a haystack.
             </p>
             <p>
-              In 2023, a group of local volunteers, social workers, and community advocates came together with a shared vision. We imagined a place where anyone could easily discover the support services available in their community—from food assistance and healthcare to job training and housing support.
+              In 2023, a group of local volunteers, social workers, and community advocates came together with a shared vision. We imagined a place where anyone could easily discover the support services available in their community, ranging from food assistance and healthcare to job training and housing support.
             </p>
             <p>
-              What started as a simple spreadsheet has grown into a comprehensive directory serving thousands of residents each month. Today, Community Hub stands as a testament to what's possible when neighbors help neighbors.
+              What started as a simple spreadsheet has grown into a comprehensive directory serving thousands of residents each month. Today, BergenConnect serves as the premier central hub for giving citizens a place to turn for accurate information.
             </p>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function AboutPage() {
             To connect every Bergen County resident with the resources they need to thrive, ensuring that no one has to navigate life's challenges alone.
           </p>
           <p className="text-neutral-medium leading-relaxed text-lg">
-            We believe that access to community resources should be simple, transparent, and available to everyone—regardless of income, background, or circumstance.
+            We believe that access to community resources should be simple, transparent, and available to everyone, regardless of background or circumstance.
           </p>
         </div>
       </section>
