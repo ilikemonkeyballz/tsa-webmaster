@@ -78,7 +78,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <span className="text-3xl font-bold text-forest-dark transition-colors duration-300 group-hover:text-forest-medium">
-              Community Hub
+              BergenConnect
             </span>
           </Link>
 
