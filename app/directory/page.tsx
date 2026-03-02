@@ -393,7 +393,8 @@ export default function DirectoryPage() {
     website: "https://foodbrigade.org",
     hours: "Open by appoinment only",
     eligibility: "Must meet income eligibility shown on website",
-    fees: "Free"
+    fees: "Free",
+    icon: ""
   }
   ];
 
