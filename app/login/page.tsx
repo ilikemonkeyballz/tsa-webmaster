@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { saveUser, getUser, type User } from "@/lib/auth";
 
-export default function LoginPage() {
+function LoginForm() {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -16,7 +16,6 @@ export default function LoginPage() {
 
   useEffect(() => {
     setIsVisible(true);
-    // If already logged in, redirect
     const user = getUser();
     if (user) {
       router.push(redirect);
@@ -32,7 +31,7 @@ export default function LoginPage() {
       newsletters: [],
     };
     
-    saveUser(user); // This now triggers the auth change event
+    saveUser(user);
     router.push(redirect);
   };
 
@@ -97,5 +96,13 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-beige flex items-center justify-center">Loading...</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }
