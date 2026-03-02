@@ -59,7 +59,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Accessibility */}
           <div className="bg-white rounded-xl p-8 shadow-md border border-neutral-light/20 hover:shadow-xl transition-all duration-300">
-            <img src="/access-control.png" alt="Accessibility" className="w-12 h-12 mb-4" />
+            <img src="/icons/access-control.png" alt="Accessibility" className="w-12 h-12 mb-4" />
             <h3 className="text-xl font-bold text-forest-dark mb-3">Accessibility</h3>
             <p className="text-neutral-medium leading-relaxed">
               Information should be free, easy to find, and available to everyone in our community without barriers.
