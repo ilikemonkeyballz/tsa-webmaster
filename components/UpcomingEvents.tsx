@@ -7,6 +7,7 @@ export default function UpcomingEvents() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
   const sectionRef = useRef<HTMLElement>(null);
+  const eventsGridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -117,8 +118,18 @@ export default function UpcomingEvents() {
   ];
 
   const filteredEvents = activeTab === "all" 
-    ? events 
-    : events.filter(event => event.category === activeTab);
+  ? events 
+  : events.filter(event => event.category === activeTab);
+
+const handleTabClick = (tabId: string) => {
+  setActiveTab(tabId);
+  eventsGridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const handleViewAllClick = () => {
+  setActiveTab("all");
+  sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
   return (
     <section ref={sectionRef} className="section-container bg-white">
@@ -132,7 +143,7 @@ export default function UpcomingEvents() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => handleTabClick(tab.id)}
               className={`px-6 py-2 font-medium transition-all duration-300 border-b-2 ${
                 activeTab === tab.id
                   ? "text-forest-dark border-forest-dark"
@@ -145,7 +156,7 @@ export default function UpcomingEvents() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div ref={eventsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredEvents.map((event, index) => (
           <div
             key={index}
@@ -218,12 +229,12 @@ export default function UpcomingEvents() {
 
       {/* View All Button */}
       <div className={`text-center mt-12 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <Link
-          href="/events"
+        <button
+          onClick={handleViewAllClick}
           className="inline-block bg-forest-medium hover:bg-forest-dark text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
         >
           View All Events
-        </Link>
+        </button>
       </div>
     </section>
   );
