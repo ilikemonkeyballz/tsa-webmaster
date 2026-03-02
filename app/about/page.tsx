@@ -68,7 +68,7 @@ export default function AboutPage() {
 
           {/* Compassion */}
           <div className="bg-white rounded-xl p-8 shadow-md border border-neutral-light/20 hover:shadow-xl transition-all duration-300">
-            <img src="/love.png" alt="Compassion" className="w-12 h-12 mb-4" />
+            <img src="/icons/love.png" alt="Compassion" className="w-12 h-12 mb-4" />
             <h3 className="text-xl font-bold text-forest-dark mb-3">Compassion</h3>
             <p className="text-neutral-medium leading-relaxed">
               We approach every interaction with empathy, understanding that asking for help takes courage.
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
           {/* Community */}
           <div className="bg-white rounded-xl p-8 shadow-md border border-neutral-light/20 hover:shadow-xl transition-all duration-300">
-            <img src="/community.png" alt="Community" className="w-12 h-12 mb-4" />
+            <img src="/icons/community.png" alt="Community" className="w-12 h-12 mb-4" />
             <h3 className="text-xl font-bold text-forest-dark mb-3">Community</h3>
             <p className="text-neutral-medium leading-relaxed">
               We're stronger together. Every resource shared strengthens the fabric of our community.
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
           {/* Accuracy */}
           <div className="bg-white rounded-xl p-8 shadow-md border border-neutral-light/20 hover:shadow-xl transition-all duration-300">
-             <img src="/accuracy.png" alt="Accuracy" className="w-12 h-12 mb-4" />
+             <img src="/icons/accuracy.png" alt="Accuracy" className="w-12 h-12 mb-4" />
             <h3 className="text-xl font-bold text-forest-dark mb-3">Accuracy</h3>
             <p className="text-neutral-medium leading-relaxed">
               We're committed to maintaining up-to-date, verified information that residents can trust.
@@ -95,7 +95,7 @@ export default function AboutPage() {
 
           {/* Inclusivity */}
           <div className="bg-white rounded-xl p-8 shadow-md border border-neutral-light/20 hover:shadow-xl transition-all duration-300">
-            <img src="/teamwork.png" alt="Teamwork" className="w-12 h-12 mb-4" />
+            <img src="/icons/teamwork.png" alt="Teamwork" className="w-12 h-12 mb-4" />
             <h3 className="text-xl font-bold text-forest-dark mb-3">Inclusivity</h3>
             <p className="text-neutral-medium leading-relaxed">
               Our directory serves all members of our diverse community with dignity and respect.
@@ -104,7 +104,7 @@ export default function AboutPage() {
 
           {/* Collaboration */}
           <div className="bg-white rounded-xl p-8 shadow-md border border-neutral-light/20 hover:shadow-xl transition-all duration-300">
-            <img src="/collaboration.png" alt="Collaboration" className="w-12 h-12 mb-4" />
+            <img src="/icons/collaboration.png" alt="Collaboration" className="w-12 h-12 mb-4" />
             <h3 className="text-xl font-bold text-forest-dark mb-3">Collaboration</h3>
             <p className="text-neutral-medium leading-relaxed">
               We partner with local organizations, volunteers, and residents to grow our impact.
