@@ -384,12 +384,13 @@ export default function DirectoryPage() {
 
   {
     id: 25,
-    name: "https://foodbrigade.org",
+    name: "The Food Brigade",
     category: "Food & Social Services",
-    descrption: "Free client-choice community market in a grocery store setting",
+    description: "Free client-choice community market in a grocery store setting",
     town: "Dumont",
     address: "185 W Madison Ave, Dumond, NJ 07628",
     phone: "(201) 614-4414",
+    website: "https://foodbrigade.org",
     hours: "Open by appoinment only",
     eligibility: "Must meet income eligibility shown on website",
     fees: "Free"
