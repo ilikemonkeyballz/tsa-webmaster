@@ -35,6 +35,7 @@ function LoginForm() {
       name: formData.name,
       email: formData.email,
       newsletters: [],
+      volunteerSignups: []
     };
     
     saveUser(user);
