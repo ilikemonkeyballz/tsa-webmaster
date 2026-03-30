@@ -204,7 +204,7 @@ const handleViewAllClick = () => {
               </p>
 
               <Link
-                href="/events"
+                href="/calendar"
                 className="inline-flex items-center text-forest-dark font-semibold hover:text-sage transition-colors group/link"
               >
                 Learn More

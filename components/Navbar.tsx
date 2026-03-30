@@ -65,7 +65,9 @@ export default function Navbar() {
 
   const productsItems = [
     { href: "/calendar", label: "Events Calendar", icon: "📅" },
-    { href: "/my-calendar", label: "My Calendar", icon: "⭐", requiresAuth: true },
+    { href: "/my-calendar", label: "My Calendar", icon: "⭐", requiresAuth: false },
+    { href: "/volunteer", label: "Volunteer Sign-Up", icon: "🙋", requiresAuth: false },
+    { href: "/map", label: "Resource Map", icon: "🗺️", requiresAuth: false },
     { href: "/bulletin", label: "Community Bulletin", icon: "📌" },
     { href: "/leaderboard", label: "Resource Leaderboard", icon: "🏆" },
     { href: "/submit", label: "Submit Resource", icon: "➕" },
@@ -175,6 +177,12 @@ export default function Navbar() {
                         <p className="text-sm font-semibold text-neutral-dark">{user.name}</p>
                         <p className="text-xs text-neutral-medium truncate">{user.email}</p>
                       </div>
+                      <Link
+                        href="/profile"
+                        className="flex items-center justify-between px-4 py-3 text-neutral-dark hover:bg-mint-bg transition-colors"
+                      >
+                        <span>👤 My Profile</span>
+                      </Link>
                       <Link
                         href="/my-calendar"
                         className="flex items-center justify-between px-4 py-3 text-neutral-dark hover:bg-mint-bg transition-colors"
