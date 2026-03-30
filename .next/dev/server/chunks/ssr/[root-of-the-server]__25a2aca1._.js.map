@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///Users/theojeon/Desktop/webmaster/app/page.tsx"],"sourcesContent":["import Hero from \"@/components/Hero\";\nimport Highlights from \"@/components/Highlights\";\nimport QuickAccess from \"@/components/QuickAccess\";\nimport CTASection from \"@/components/CTASection\";\n\nexport default function Home() {\n  return (\n    <>\n      <Hero />\n      <QuickAccess />\n      <Highlights />\n      <CTASection />\n    </>\n  );\n}"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAKe,SAAS;IACtB,qBACE;;0BACE,sQAAC;;;;;0BACD,sQAAC;;;;;0BACD,sQAAC;;;;;0BACD,sQAAC;;;;;;;AAGP"}}]
-}
