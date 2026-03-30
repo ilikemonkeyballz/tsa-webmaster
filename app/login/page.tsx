@@ -34,8 +34,8 @@ function LoginForm() {
     const user: User = {
       name: formData.name,
       email: formData.email,
-      newsletters: [],
-      volunteerSignups: [],
+      newsletters: [] as number[],      
+      volunteerSignups: [] as any[],     // <- explicitly type according to your User type
     };
     
     saveUser(user);
