@@ -23,6 +23,7 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess, redirectMe
       name: formData.name,
       email: formData.email,
       newsletters: [],
+      volunteerSignups: []
     };
     
     saveUser(user);
