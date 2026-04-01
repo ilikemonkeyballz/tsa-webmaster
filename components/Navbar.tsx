@@ -64,12 +64,12 @@ export default function Navbar() {
   ];
 
   const productsItems = [
-    { href: "/calendar", label: "Events Calendar", icon: "📅" },
-    { href: "/my-calendar", label: "My Calendar", icon: "⭐", requiresAuth: false },
-    { href: "/volunteer", label: "Volunteer Sign-Up", icon: "🙋", requiresAuth: false },
-    { href: "/map", label: "Resource Map", icon: "🗺️", requiresAuth: false },
-    { href: "/bulletin", label: "Community Bulletin", icon: "📌" },
-    { href: "/leaderboard", label: "Resource Leaderboard", icon: "🏆" },
+    { href: "/calendar", label: "Events Calendar", icon: "/icons/calendar.png" },
+    { href: "/my-calendar", label: "My Calendar", icon: "/icons/star.png", requiresAuth: false },
+    { href: "/volunteer", label: "Volunteer Sign-Up", icon: "/icons/charity-organization.png", requiresAuth: false },
+    { href: "/map", label: "Resource Map", icon: "/icons/map.png", requiresAuth: false },
+    { href: "/bulletin", label: "Community Bulletin", icon: "/icons/pin.png" },
+    { href: "/leaderboard", label: "Resource Leaderboard", icon: "/icons/trophy.png" },
     { href: "/submit", label: "Submit Resource", icon: "➕" },
   ];
 

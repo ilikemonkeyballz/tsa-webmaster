@@ -30,9 +30,9 @@ export default function VolunteerPage() {
     }
     const result = signUpForEvent(eventId, capacity);
     if (result === "confirmed") {
-      showToast("✅ You're confirmed as a volunteer! Check your profile for details.", "success");
+      showToast("You're confirmed as a volunteer! Check your profile for details.", "success");
     } else if (result === "waitlist") {
-      showToast("📋 Event is full — you've been added to the waitlist!", "waitlist");
+      showToast("Event is full — you've been added to the waitlist!", "waitlist");
     } else if (result === "already_signed_up") {
       showToast("You're already signed up for this event.", "error");
     }
@@ -84,9 +84,9 @@ export default function VolunteerPage() {
         {/* How it works */}
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           {[
-            { icon: "👤", title: "Sign In", desc: "Create a free account to track your volunteer activities." },
-            { icon: "📋", title: "Sign Up", desc: "Browse events and claim a volunteer spot. Join the waitlist if full." },
-            { icon: "⭐", title: "Log Hours", desc: "After the event, log your hours from your profile page." },
+            { icon: "/icons/user.png", title: "Sign In", desc: "Create a free account to track your volunteer activities." },
+            { icon: "/icons/exam.png", title: "Sign Up", desc: "Browse events and claim a volunteer spot. Join the waitlist if full." },
+            { icon: "/icons/star.png", title: "Log Hours", desc: "After the event, log your hours from your profile page." },
           ].map((step, i) => (
             <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-neutral-light/20 text-center">
               <div className="text-4xl mb-3">{step.icon}</div>
@@ -143,7 +143,7 @@ export default function VolunteerPage() {
                           </span>
                           {userSignup && (
                             <span className={`text-sm font-semibold px-3 py-1 rounded-full ${userSignup.status === "confirmed" ? "bg-forest-medium/10 text-forest-dark" : "bg-ocean-dark/10 text-ocean-dark"}`}>
-                              {userSignup.status === "confirmed" ? "✅ Confirmed" : "⏳ On Waitlist"}
+                              {userSignup.status === "confirmed" ? "Confirmed" : "On Waitlist"}
                             </span>
                           )}
                         </div>
@@ -181,7 +181,7 @@ export default function VolunteerPage() {
                         {userSignup ? (
                           <>
                             <div className={`text-center px-4 py-3 rounded-xl font-semibold text-sm ${userSignup.status === "confirmed" ? "bg-forest-medium/10 text-forest-dark" : "bg-ocean-dark/10 text-ocean-dark"}`}>
-                              {userSignup.status === "confirmed" ? "✅ You're volunteering!" : "⏳ You're on the waitlist"}
+                              {userSignup.status === "confirmed" ? "You're volunteering!" : "You're on the waitlist"}
                             </div>
                             <button
                               onClick={() => handleCancel(event.id)}
@@ -202,7 +202,7 @@ export default function VolunteerPage() {
                                 : "bg-forest-medium text-white hover:bg-forest-dark"
                             }`}
                           >
-                            {isFull ? "📋 Join Waitlist" : "🙋 Sign Up to Volunteer"}
+                            {isFull ? "Join Waitlist" : "Sign Up to Volunteer"}
                           </button>
                         )}
                       </div>

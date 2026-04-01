@@ -81,7 +81,7 @@ export default function LeaderboardPage() {
     <div className="min-h-screen bg-beige">
       <div className={`bg-gradient-to-r from-forest-dark to-forest-medium text-white py-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
         <div className="section-container">
-          <h1 className="text-5xl font-bold mb-4">🏆 Community Resources Leaderboard</h1>
+          <h1 className="text-5xl font-bold mb-4">Community Resources Leaderboard</h1>
           <p className="text-xl text-mint">Top-rated organizations based on community reviews</p>
         </div>
       </div>
