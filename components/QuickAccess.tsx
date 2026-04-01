@@ -9,52 +9,40 @@ export default function QuickAccess() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   const categories = [
     {
       title: "Healthcare",
-      description: "Medical services & clinics",
+      description: "Medical services, clinics & mental health support",
       icon: "/icons/cardiogram.png",
-      bgColor: "bg-ocean-light",
-      hoverColor: "hover:bg-ocean-medium",
+      bg: "linear-gradient(135deg, #1b4965 0%, #2d6a8f 100%)",
       categoryValue: "Social Services",
     },
     {
       title: "Food Assistance",
-      description: "Food banks & meal programs",
+      description: "Food banks, pantries & free meal programs",
       icon: "/icons/burger.png",
-      bgColor: "bg-forest-light",
-      hoverColor: "hover:bg-forest-medium",
+      bg: "linear-gradient(135deg, #2d6a4f 0%, #52b788 100%)",
       categoryValue: "Food & Social Services",
     },
     {
       title: "Housing",
-      description: "Shelter & housing support",
+      description: "Emergency shelter & housing support services",
       icon: "/icons/house.png",
-      bgColor: "bg-sage",
-      hoverColor: "hover:bg-forest-light",
+      bg: "linear-gradient(135deg, #6b4c3b 0%, #8a6450 100%)",
       categoryValue: "Shelter & Housing",
     },
     {
       title: "Education",
-      description: "Schools & learning centers",
+      description: "Adult learning, GED prep & job training",
       icon: "/icons/book.png",
-      bgColor: "bg-ocean-dark",
-      hoverColor: "hover:bg-forest-dark",
+      bg: "linear-gradient(135deg, #3a2d6b 0%, #5a4a9e 100%)",
       categoryValue: "Employment Services",
     },
   ];
@@ -75,34 +63,33 @@ export default function QuickAccess() {
               window.location.href = `/directory#${category.categoryValue.toLowerCase().replace(/\s+/g, '-')}`;
               setTimeout(() => {
                 const element = document.querySelector(`[data-category="${category.categoryValue}"]`);
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }, 100);
             }}
           >
-            <div 
-              className={`${category.bgColor} ${category.hoverColor} p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-2 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+            <div
+              className={`p-8 rounded-2xl shadow-lg transition-all duration-500 h-full transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{
+                background: category.bg,
+                transitionDelay: `${index * 100}ms`,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-8px)';
+                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 40px rgba(0,0,0,0.2)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)';
+                (e.currentTarget as HTMLDivElement).style.boxShadow = '';
+              }}
             >
-              {/* CHANGED: Icon rendering to support both emojis and images */}
-              {category.icon.startsWith('/') || category.icon.startsWith('http') ? (
-                <img 
-                  src={category.icon} 
-                  alt={category.title}
-                  className="w-16 h-16 mb-6 object-contain transform group-hover:scale-110 transition-transform duration-300"
-                />
-              ) : (
-                <div className="text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                  {category.icon}
-                </div>
-              )}
-              <h3 className="text-2xl font-bold text-white mb-3">
-                {category.title}
-              </h3>
-              <p className="text-white/90 leading-relaxed">{category.description}</p>
+              <img
+                src={category.icon}
+                alt={category.title}
+                className="w-16 h-16 mb-6 object-contain transform group-hover:scale-110 transition-transform duration-300"
+                style={{ filter: 'brightness(0) invert(1)', opacity: 0.9 }}
+              />
+              <h3 className="text-2xl font-bold text-white mb-3">{category.title}</h3>
+              <p className="text-white/85 leading-relaxed">{category.description}</p>
             </div>
           </Link>
         ))}

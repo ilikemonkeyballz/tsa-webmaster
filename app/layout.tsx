@@ -7,8 +7,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Community Hub - Bergen County Resources",
-  description: "Find local community resources and support services",
+  title: "BergenConnect — Bergen County Community Hub",
+  description: "Connecting Bergen County residents with local events, resources, volunteers, and community services.",
 };
 
 export default function RootLayout({

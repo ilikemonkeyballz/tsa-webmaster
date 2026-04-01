@@ -9,18 +9,10 @@ export default function Highlights() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -28,8 +20,8 @@ export default function Highlights() {
     {
       name: "Community Food Bank",
       category: "Food Assistance",
-      description: "Providing fresh groceries and meals to families in need. Open Monday-Saturday with no appointment necessary.",
-      hours: "Mon-Sat: 9AM-5PM",
+      description: "Providing fresh groceries and meals to families in need. Open Monday–Saturday with no appointment necessary.",
+      hours: "Mon–Sat: 9AM–5PM",
       contact: "(555) 123-4567",
       image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800",
     },
@@ -37,7 +29,7 @@ export default function Highlights() {
       name: "Free Medical Clinic",
       category: "Healthcare",
       description: "Offering free healthcare services including check-ups, vaccinations, and chronic disease management.",
-      hours: "Tue-Fri: 8AM-6PM",
+      hours: "Tue–Fri: 8AM–6PM",
       contact: "(555) 234-5678",
       image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800",
     },
@@ -45,11 +37,17 @@ export default function Highlights() {
       name: "Adult Learning Center",
       category: "Education",
       description: "GED preparation, English classes, job training, and computer skills workshops for adults of all ages.",
-      hours: "Mon-Thu: 10AM-8PM",
+      hours: "Mon–Thu: 10AM–8PM",
       contact: "(555) 345-6789",
       image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800",
     },
   ];
+
+  const categoryColors: Record<string, string> = {
+    "Food Assistance": "#2d6a4f",
+    "Healthcare":      "#1b4965",
+    "Education":       "#3a2d6b",
+  };
 
   return (
     <section ref={sectionRef} className="section-container bg-white">
@@ -64,8 +62,8 @@ export default function Highlights() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {highlights.map((resource, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={`card group transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ transitionDelay: `${index * 150}ms` }}
           >
@@ -76,17 +74,16 @@ export default function Highlights() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-mint text-forest-dark px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+              <div
+                className="absolute top-4 left-4 px-4 py-2 rounded-full text-sm font-semibold shadow-lg text-white"
+                style={{ background: categoryColors[resource.category] || '#2d6a4f' }}
+              >
                 {resource.category}
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-forest-dark mb-4">
-              {resource.name}
-            </h3>
-            <p className="text-sage mb-6 leading-relaxed">
-              {resource.description}
-            </p>
+            <h3 className="text-2xl font-bold text-forest-dark mb-4">{resource.name}</h3>
+            <p className="text-sage mb-6 leading-relaxed">{resource.description}</p>
 
             <div className="space-y-3 text-sm text-forest-medium mb-6 pb-6 border-b border-sage/20">
               <div className="flex items-center">
@@ -106,16 +103,9 @@ export default function Highlights() {
               Learn More
               <svg
                 className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>

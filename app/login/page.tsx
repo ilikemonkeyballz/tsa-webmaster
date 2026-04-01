@@ -6,45 +6,40 @@ import { saveUser, getUser, type User } from "@/lib/auth";
 
 function LoginForm() {
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-  });
+  const [focused, setFocused] = useState<string | null>(null);
+  const [formData, setFormData] = useState({ name: "", email: "" });
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirect = searchParams.get('redirect') || '/';
+  const redirect = searchParams.get("redirect") || "/";
 
   useEffect(() => {
-  setIsVisible(true);
-
-  const user = getUser();
-  if (!user) return;
-
-  // Prevent infinite redirect loop
-  if (redirect && redirect !== "/login") {
-    router.replace(redirect);
-  } else {
-    router.replace("/");
-  }
-}, [redirect, router]);
+    setTimeout(() => setIsVisible(true), 80);
+    const user = getUser();
+    if (!user) return;
+    if (redirect && redirect !== "/login") {
+      router.replace(redirect);
+    } else {
+      router.replace("/");
+    }
+  }, [redirect, router]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     const user: User = {
       name: formData.name,
       email: formData.email,
-      newsletters: [] as number[],      
-      volunteerSignups: [] as any[],     // <- explicitly type according to your User type
+      newsletters: [] as number[],
+      volunteerSignups: [] as any[],
     };
-    
     saveUser(user);
     router.push(redirect);
   };
 
   return (
     <div className="min-h-screen bg-beige flex items-center justify-center p-4">
-      <div className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full border border-neutral-light/20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div
+        className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full border border-neutral-light/20 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-neutral-dark mb-3">Welcome Back</h1>
           <p className="text-neutral-medium">Sign in to access personalized features</p>
@@ -52,28 +47,36 @@ function LoginForm() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-semibold text-neutral-dark mb-2">
-              Name
-            </label>
+            <label className="block text-sm font-semibold text-neutral-dark mb-2">Name</label>
             <input
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 border border-neutral-light/30 rounded-lg focus:border-forest-medium focus:ring-2 focus:ring-forest-medium/20 outline-none"
+              onFocus={() => setFocused("name")}
+              onBlur={() => setFocused(null)}
+              className="w-full px-4 py-3 border rounded-lg outline-none transition-all duration-200"
+              style={{
+                borderColor: focused === "name" ? "#52b788" : "rgba(141,153,174,0.3)",
+                boxShadow: focused === "name" ? "0 0 0 3px rgba(82,183,136,0.12)" : "none",
+              }}
               placeholder="Enter your name"
               required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-neutral-dark mb-2">
-              Email
-            </label>
+            <label className="block text-sm font-semibold text-neutral-dark mb-2">Email</label>
             <input
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-3 border border-neutral-light/30 rounded-lg focus:border-forest-medium focus:ring-2 focus:ring-forest-medium/20 outline-none"
+              onFocus={() => setFocused("email")}
+              onBlur={() => setFocused(null)}
+              className="w-full px-4 py-3 border rounded-lg outline-none transition-all duration-200"
+              style={{
+                borderColor: focused === "email" ? "#52b788" : "rgba(141,153,174,0.3)",
+                boxShadow: focused === "email" ? "0 0 0 3px rgba(82,183,136,0.12)" : "none",
+              }}
               placeholder="your.email@example.com"
               required
             />
@@ -81,7 +84,7 @@ function LoginForm() {
 
           <button
             type="submit"
-            className="w-full bg-forest-medium hover:bg-forest-dark text-white font-semibold py-4 rounded-lg transition-colors"
+            className="w-full bg-forest-medium hover:bg-forest-dark text-white font-semibold py-4 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
           >
             Sign In
           </button>

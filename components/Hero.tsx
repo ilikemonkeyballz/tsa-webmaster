@@ -7,13 +7,13 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 80);
   }, []);
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000')",
@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-forest-dark/85 via-forest-medium/80 to-ocean-dark/85"></div>
       </div>
 
-      {/* Subtle Pattern Overlay */}
+      {/* Subtle dot pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -39,8 +39,10 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
-            Community Hub
+          <h1 className="text-3xl md:text-4xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+            Your county.<br />
+            Your <span className="text-seafoam italic">community.</span><br />
+            All in one place.
           </h1>
         </div>
 
@@ -49,11 +51,11 @@ export default function Hero() {
             Where Connections Grow Stronger
           </p>
         </div>
-        
+
         <div className={`mt-12 text-white text-base md:text-lg max-w-3xl mx-auto transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="space-y-6 leading-relaxed">
             <p className="text-lg md:text-xl text-mint">
-              Like roots intertwining beneath the forest floor, our community draws strength from connection.
+              BergenConnect brings together local events, resources, volunteers, and neighbors. So finding help, giving back, or staying informed is always just a click away.
             </p>
             <p className="text-base md:text-lg text-white/80">
               Discover resources that nourish, support that sustains, and services that help you flourish.
@@ -61,12 +63,18 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className={`mt-16 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Link 
-            href="/directory" 
+        <div className={`mt-16 flex gap-4 justify-center flex-wrap transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Link
+            href="/directory"
             className="inline-block bg-sage hover:bg-mint text-white font-semibold px-10 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 text-lg"
           >
             Explore Resources
+          </Link>
+          <Link
+            href="/calendar"
+            className="inline-block border-2 border-seafoam/60 hover:border-seafoam text-seafoam hover:text-white font-semibold px-10 py-5 rounded-xl transition-all duration-300 hover:bg-seafoam/10 text-lg"
+          >
+            View Events →
           </Link>
         </div>
 
