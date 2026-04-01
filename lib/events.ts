@@ -17,7 +17,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 1,
     title: "Community Health Fair",
-    date: new Date(2026, 0, 15),
+    date: new Date(2026, 3, 15),
     time: "10:00 AM - 3:00 PM",
     category: "healthcare",
     organizer: "Bergen Medical Center",
@@ -31,7 +31,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 2,
     title: "Free Dental Clinic",
-    date: new Date(2026, 0, 18),
+    date: new Date(2026, 3, 18),
     time: "8:00 AM - 4:00 PM",
     category: "healthcare",
     organizer: "Bergen Medical Center",
@@ -45,7 +45,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 3,
     title: "Mental Health Support Group",
-    date: new Date(2026, 0, 20),
+    date: new Date(2026, 3, 20),
     time: "6:30 PM - 8:00 PM",
     category: "healthcare",
     organizer: "Bergen Medical Center",
@@ -59,7 +59,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 4,
     title: "Job Skills Workshop",
-    date: new Date(2026, 0, 22),
+    date: new Date(2026, 3, 22),
     time: "6:00 PM - 8:00 PM",
     category: "employment",
     organizer: "Greater Bergen Community Action",
@@ -73,7 +73,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 5,
     title: "Community Meal Program",
-    date: new Date(2026, 0, 25),
+    date: new Date(2026, 3, 25),
     time: "5:00 PM - 7:00 PM",
     category: "food",
     organizer: "Center for Food Action",
@@ -87,7 +87,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 6,
     title: "Food Distribution Day",
-    date: new Date(2026, 0, 28),
+    date: new Date(2026, 3, 28),
     time: "9:00 AM - 12:00 PM",
     category: "food",
     organizer: "Center for Food Action",
@@ -101,7 +101,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 7,
     title: "Career Fair & Job Expo",
-    date: new Date(2026, 1, 5),
+    date: new Date(2026, 4, 5),
     time: "10:00 AM - 3:00 PM",
     category: "employment",
     organizer: "Greater Bergen Community Action",
@@ -115,7 +115,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 8,
     title: "Senior Flu Shot Clinic",
-    date: new Date(2026, 1, 8),
+    date: new Date(2026, 4, 8),
     time: "9:00 AM - 1:00 PM",
     category: "healthcare",
     organizer: "Bergen Medical Center",
@@ -129,7 +129,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 9,
     title: "Housing Resource Fair",
-    date: new Date(2026, 1, 12),
+    date: new Date(2026, 4, 12),
     time: "1:00 PM - 5:00 PM",
     category: "housing",
     organizer: "Greater Bergen Community Action",
@@ -143,7 +143,7 @@ export const COMMUNITY_EVENTS: CommunityEvent[] = [
   {
     id: 10,
     title: "Adult Education Open House",
-    date: new Date(2026, 1, 15),
+    date: new Date(2026, 4, 15),
     time: "10:00 AM - 2:00 PM",
     category: "education",
     organizer: "Greater Bergen Community Action",

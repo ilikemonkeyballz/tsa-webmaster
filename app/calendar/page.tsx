@@ -272,7 +272,7 @@ export default function CalendarPage() {
                         </button>
                         {event.volunteersNeeded && !userSignup && (
                           <button onClick={() => handleVolunteerSignup(event.id, event.capacity)} className="font-semibold px-6 py-3 rounded-lg border-2 border-forest-medium text-forest-dark hover:bg-forest-medium hover:text-white transition-all duration-300">
-                            {counts.spotsLeft > 0 ? "🙋 Volunteer" : "📋 Join Waitlist"}
+                            {counts.spotsLeft > 0 ? "Volunteer" : "Join Waitlist"}
                           </button>
                         )}
                         {userSignup && (
