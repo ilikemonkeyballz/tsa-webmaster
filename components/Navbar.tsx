@@ -11,29 +11,22 @@ export default function Navbar() {
   const [user, setUser] = useState<ReturnType<typeof getUser>>(null);
   const [calendarCount, setCalendarCount] = useState(0);
 
-  // Update user state and calendar count when auth changes or on mount
   useEffect(() => {
-    // Initial load
     setUser(getUser());
     updateCalendarCount();
 
-    // Listen for auth changes
     const handleAuthChange = () => {
       setUser(getUser());
     };
 
-    // Listen for calendar changes
     const handleStorageChange = () => {
       updateCalendarCount();
     };
 
     window.addEventListener(AUTH_CHANGE_EVENT, handleAuthChange);
     window.addEventListener('storage', handleStorageChange);
-    
-    // Custom event for same-page localStorage changes
     window.addEventListener('calendarUpdated', handleStorageChange);
 
-    // Cleanup
     return () => {
       window.removeEventListener(AUTH_CHANGE_EVENT, handleAuthChange);
       window.removeEventListener('storage', handleStorageChange);
@@ -129,7 +122,11 @@ export default function Navbar() {
                         href={item.href}
                         className="flex items-center px-4 py-3 text-neutral-dark hover:bg-mint-bg hover:text-forest-dark transition-all duration-200"
                       >
-                        <span className="text-2xl mr-3">{item.icon}</span>
+                        {item.icon.startsWith("/") ? (
+                          <img src={item.icon} alt="" className="w-6 h-6 mr-3 object-contain" />
+                        ) : (
+                          <span className="text-2xl mr-3">{item.icon}</span>
+                        )}
                         <span className="font-medium">{item.label}</span>
                         {item.href === "/my-calendar" && calendarCount > 0 && (
                           <span className="ml-auto text-xs bg-sage/20 text-forest-dark px-2 py-1 rounded font-semibold">
@@ -181,13 +178,19 @@ export default function Navbar() {
                         href="/profile"
                         className="flex items-center justify-between px-4 py-3 text-neutral-dark hover:bg-mint-bg transition-colors"
                       >
-                        <span>👤 My Profile</span>
+                        <span className="flex items-center">
+                          <img src="/icons/user.png" alt="" className="w-5 h-5 mr-2 object-contain" />
+                          My Profile
+                        </span>
                       </Link>
                       <Link
                         href="/my-calendar"
                         className="flex items-center justify-between px-4 py-3 text-neutral-dark hover:bg-mint-bg transition-colors"
                       >
-                        <span>⭐ My Calendar</span>
+                        <span className="flex items-center">
+                          <img src="/icons/star.png" alt="" className="w-5 h-5 mr-2 object-contain" />
+                          My Calendar
+                        </span>
                         {calendarCount > 0 && (
                           <span className="text-xs bg-sage/20 text-forest-dark px-2 py-1 rounded font-semibold">
                             {calendarCount}
@@ -198,7 +201,10 @@ export default function Navbar() {
                         href="/my-newsletters"
                         className="flex items-center justify-between px-4 py-3 text-neutral-dark hover:bg-mint-bg transition-colors"
                       >
-                        <span>📧 My Newsletters</span>
+                        <span className="flex items-center">
+                          <img src="/icons/email.png" alt="" className="w-5 h-5 mr-2 object-contain" />
+                          My Newsletters
+                        </span>
                         {user.newsletters.length > 0 && (
                           <span className="text-xs bg-sage/20 text-forest-dark px-2 py-1 rounded font-semibold">
                             {user.newsletters.length}
@@ -276,10 +282,10 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              
+
               <div className="border-t border-neutral-light/20 my-2"></div>
               <p className="text-xs font-semibold text-neutral-medium px-4 py-2">PRODUCTS & SERVICES</p>
-              
+
               {productsItems.map((item) => (
                 <Link
                   key={item.href}
@@ -288,7 +294,11 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   <div className="flex items-center">
-                    <span className="text-xl mr-3">{item.icon}</span>
+                    {item.icon.startsWith("/") ? (
+                      <img src={item.icon} alt="" className="w-6 h-6 mr-3 object-contain" />
+                    ) : (
+                      <span className="text-xl mr-3">{item.icon}</span>
+                    )}
                     {item.label}
                   </div>
                   {item.href === "/my-calendar" && calendarCount > 0 && (
@@ -301,9 +311,9 @@ export default function Navbar() {
                   )}
                 </Link>
               ))}
-              
+
               <div className="border-t border-neutral-light/20 my-2"></div>
-              
+
               {user ? (
                 <>
                   <Link
@@ -311,7 +321,10 @@ export default function Navbar() {
                     className="flex items-center justify-between text-neutral-dark hover:text-forest-dark hover:bg-mint-bg font-medium py-3 px-4 rounded-lg transition-all duration-300"
                     onClick={() => setIsOpen(false)}
                   >
-                    <span>📧 My Newsletters</span>
+                    <span className="flex items-center">
+                      <img src="/icons/email.png" alt="" className="w-5 h-5 mr-2 object-contain" />
+                      My Newsletters
+                    </span>
                     {user.newsletters.length > 0 && (
                       <span className="text-xs bg-sage/20 text-forest-dark px-2 py-1 rounded font-semibold">
                         {user.newsletters.length}
