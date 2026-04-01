@@ -81,7 +81,7 @@ export default function DirectoryPage() {
       hours: "Mon–Fri 9am–5pm (varies by program)",
       eligibility: "Low-income individuals and families",
       fees: "Free or income-based",
-      icon: "🏘️",
+      icon: "/icons/3_GreaterBergenCommAct.png",
     },
     {
       id: 4,
@@ -95,7 +95,7 @@ export default function DirectoryPage() {
       hours: "Contact for availability",
       eligibility: "Older adults, homebound, volunteers",
       fees: "Free",
-      icon: "🤝",
+      icon: "/icons/4 - bergen volunteers.png",
     },
     {
     
@@ -110,7 +110,7 @@ export default function DirectoryPage() {
       hours: "Varies by program",
       eligibility: "Community members",
       fees: "Sliding scale / insurance accepted",
-      icon: "💙",
+      icon: "/icons/5 - jewish family children services.png",
     },
     {
       id: 6,
@@ -124,7 +124,7 @@ export default function DirectoryPage() {
       hours: "Daily deliveries",
       eligibility: "Homebound seniors",
       fees: "Suggested donation",
-      icon: "🍱",
+      icon: "6 - meals on wheels.png",
     },
     {
 
@@ -139,7 +139,7 @@ export default function DirectoryPage() {
       hours: "Office hours vary (call to confirm)",
       eligibility: "Low-income qualifying families",
       fees: "Affordable mortgage model",
-      icon: "🔨",
+      icon: "7 - habitat for humanity.png",
     },
     {
       id: 8,
@@ -153,7 +153,7 @@ export default function DirectoryPage() {
       hours: "211 available 24/7",
       eligibility: "Community-wide",
       fees: "Varies by program",
-      icon: "📞",
+      icon: "8 - united way.png",
     },
     {
       
@@ -168,7 +168,7 @@ export default function DirectoryPage() {
       hours: "24/7 crisis line; office hours vary",
       eligibility: "Survivors of domestic violence",
       fees: "Free",
-      icon: "🛡️",
+      icon: "9 - center for hope.png",
     },
         {
       id: 10,
@@ -182,7 +182,7 @@ export default function DirectoryPage() {
       hours: "Hours vary by service",
       eligibility: "Individuals experiencing homelessness",
       fees: "Free or subsidized",
-      icon: "🏚️",
+      icon: "10 - eva's village.png",
     },
     {
       id: 11,
@@ -196,7 +196,7 @@ export default function DirectoryPage() {
       hours: "Verify hours with church",
       eligibility: "Residents of Englewood area",
       fees: "Free",
-      icon: "🍞",
+      icon: "11 - st cecelia.png",
     },
     {
       id: 12,
@@ -210,7 +210,7 @@ export default function DirectoryPage() {
       hours: "Confirm schedule",
       eligibility: "Local residents",
       fees: "Free",
-      icon: "🥫",
+      icon: "12 - ridgewood food.png",
     },
     {
       id: 13,
@@ -224,7 +224,7 @@ export default function DirectoryPage() {
       hours: "Check for hours",
       eligibility: "Local residents",
       fees: "Free or sliding scale",
-      icon: "🤲",
+      icon: "13 - ridgewood soc serv.png",
     },
     {
       id: 14,
@@ -238,7 +238,7 @@ export default function DirectoryPage() {
       hours: "24/7 services",
       eligibility: "Survivors and at-risk families",
       fees: "Free",
-      icon: "🌸",
+      icon: "14 - oasis.png",
     },
     {
       id: 15,
@@ -252,7 +252,7 @@ export default function DirectoryPage() {
       hours: "Varies by location",
       eligibility: "Job seekers",
       fees: "Often free",
-      icon: "💼",
+      icon: "15 - goodwill.png",
     },
     {
       id: 16,
@@ -266,7 +266,7 @@ export default function DirectoryPage() {
       hours: "Office hours vary by program",
       eligibility: "Women, families, and children",
       fees: "Varies by program",
-      icon: "👶",
+      icon: "16 - ywca.png",
     },
     {
       id: 17,
@@ -280,7 +280,7 @@ export default function DirectoryPage() {
       hours: "Contact for services",
       eligibility: "People with disabilities",
       fees: "Varies by program",
-      icon: "♿",
+      icon: "17 - cerebral.png",
     },
     {
       id: 18,
@@ -294,7 +294,7 @@ export default function DirectoryPage() {
       hours: "Store hours vary",
       eligibility: "Public shoppers & volunteers",
       fees: "Retail prices",
-      icon: "🛠️",
+      icon: "18 - habitat for humanity.png",
     },
     {
       id: 19,
@@ -308,7 +308,7 @@ export default function DirectoryPage() {
       hours: "24/7 emergency",
       eligibility: "All patients",
       fees: "Insurance / self-pay",
-      icon: "🏥",
+      icon: "19 - bergen new bridge.png",
   },
   {
       id: 20,
@@ -322,7 +322,7 @@ export default function DirectoryPage() {
       hours: "24/7",
       eligibility: "All patients",
       fees: "Insurance / self-pay",
-      icon: "🏥",
+      icon: "20 - valley health.png",
   },
   {
     id: 21,
@@ -336,7 +336,7 @@ export default function DirectoryPage() {
     hours: "24/7",
     eligibility: "All patients",
     fees: "Insurance / self-pay",
-    icon: "🏥",
+    icon: "21 - englewood health.png",
   },
 
   {
@@ -351,7 +351,7 @@ export default function DirectoryPage() {
     hours: "Varies by clinic",
     eligibility: "Residents needing behavioral health services",
     fees: "Insurance / sliding scale",
-    icon: "🧠",
+    icon: "22 - careplus.png",
   },
   {
     id: 23,
@@ -365,7 +365,7 @@ export default function DirectoryPage() {
     hours: "Office weekdays",
     eligibility: "Residents facing food insecurity",
     fees: "Free",
-    icon: "🥫",
+    icon: "23 - bc food security.png",
   },
   {
     id: 24,
@@ -379,7 +379,7 @@ export default function DirectoryPage() {
     hours: "Mon–Fri 8:30am–5pm",
     eligibility: "Individuals with mental health needs",
     fees: "Medicaid / sliding scale",
-    icon: "🧠",
+    icon: "24 - vantage health.png",
   },
 
   {
@@ -394,7 +394,7 @@ export default function DirectoryPage() {
     hours: "Open by appoinment only",
     eligibility: "Must meet income eligibility shown on website",
     fees: "Free",
-    icon: ""
+    icon: "25 - food brigade.png"
   },
   {
   id: 26,
@@ -408,7 +408,7 @@ export default function DirectoryPage() {
   hours: "Programs on the 2nd Monday of each month at 6:00 PM (in-person & virtual)",
   eligibility: "Adult children, caregivers, and family members of aging parents",
   fees: "Free",
-  icon: "👴",
+  icon: "26 - acap.png",
 },
 {
   id: 27,
@@ -422,7 +422,7 @@ export default function DirectoryPage() {
   hours: "Memory Cafés and events held throughout the year; contact for schedule",
   eligibility: "Bergen County residents living with dementia, caregivers, and community members",
   fees: "Free",
-  icon: "🧠",
+  icon: "27 - act now foundation.png",
 },
 {
   id: 28,
@@ -436,7 +436,7 @@ export default function DirectoryPage() {
   hours: "Mon–Fri 8:30am–4:30pm",
   eligibility: "Glen Rock senior residents",
   fees: "Free or discounted",
-  icon: "🏡",
+  icon: "28 - glen rock.png",
 },
 {
   id: 29,
@@ -450,7 +450,7 @@ export default function DirectoryPage() {
   hours: "Mon–Fri 8:30am–4:30pm",
   eligibility: "Low-income families, seniors, and individuals; income limits apply",
   fees: "Income-based rent",
-  icon: "🏠",
+  icon: "29 - habc.png",
 },
 
 {
@@ -465,7 +465,7 @@ export default function DirectoryPage() {
   hours: "Mon–Fri 8:00am–4:30pm (varies by department)",
   eligibility: "Bergen County job seekers, businesses, and residents; specialized programs have specific eligibility",
   fees: "Free",
-  icon: "💼",
+  icon: "30 - bc job center.png",
 },
 
 {
@@ -480,7 +480,7 @@ export default function DirectoryPage() {
   hours: "Contact for program schedule",
   eligibility: "Ages 18–30, exited high school, eligible for DVRS and DDD or willing to self-pay",
   fees: "DDD-funded or self-pay",
-  icon: "♿",
+  icon: "31 - project search.png",
 },
   ];
 
