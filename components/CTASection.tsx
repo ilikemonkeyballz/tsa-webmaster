@@ -17,41 +17,64 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 overflow-hidden bg-forest-dark">
-      {/* Subtle pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="cta-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-              <circle cx="25" cy="25" r="2" fill="#a8d5ba"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#cta-pattern)"/>
-        </svg>
-      </div>
+    <section ref={sectionRef} className="relative py-24 overflow-hidden" style={{ background: "#1a4d3e" }}>
+      {/* Warm radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(82,183,136,0.13) 0%, transparent 65%), radial-gradient(ellipse 50% 50% at 10% 80%, rgba(45,106,79,0.1) 0%, transparent 50%)",
+        }}
+      />
 
-      {/* Soft radial glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse at center, rgba(82,183,136,0.12) 0%, transparent 70%)'
-      }} />
+      {/* Subtle dot texture */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, #95d5b2 1px, transparent 1px)`,
+          backgroundSize: "32px 32px",
+        }}
+      />
 
-      <div className="relative z-10 section-container text-center text-white">
-        <h2 className={`text-4xl md:text-5xl font-bold mb-8 text-seafoam transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          Know a Resource We're Missing?
-        </h2>
-        <p className={`text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-light text-mint/90 leading-relaxed transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          Help us cultivate a comprehensive community directory by sharing local resources and services that matter.
-        </p>
-        <div className={`flex gap-4 justify-center flex-wrap transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="relative z-10 section-container text-center">
+        <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <span
+            className="inline-block text-xs font-semibold tracking-[0.16em] uppercase mb-6 px-4 py-1.5 rounded-full"
+            style={{ color: "#95d5b2", border: "1px solid rgba(149,213,178,0.2)", background: "rgba(149,213,178,0.07)" }}
+          >
+            Grow the Community
+          </span>
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+            style={{ color: "#b7e4c7", fontFamily: "'Lora', Georgia, serif" }}
+          >
+            Know a Resource We're Missing?
+          </h2>
+          <p
+            className={`text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-100 ${isVisible ? "opacity-100" : "opacity-0"}`}
+            style={{ color: "rgba(149,213,178,0.8)" }}
+          >
+            Help us cultivate a comprehensive community directory by sharing local resources and services that matter to Bergen County residents.
+          </p>
+        </div>
+
+        <div
+          className={`flex gap-3 justify-center flex-wrap transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           <Link
             href="/submit"
-            className="inline-block bg-mint hover:bg-seafoam text-forest-dark font-semibold px-10 py-5 rounded-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 text-lg"
+            className="inline-block font-semibold px-8 py-4 rounded-xl text-base transition-all duration-250 hover:-translate-y-0.5 hover:shadow-xl"
+            style={{
+              background: "#74c69d",
+              color: "#1a4d3e",
+              boxShadow: "0 4px 20px rgba(116,198,157,0.25)",
+            }}
           >
             Submit a Resource
           </Link>
           <Link
             href="/directory"
-            className="inline-block border-2 border-seafoam/50 hover:border-seafoam text-seafoam hover:text-white font-semibold px-10 py-5 rounded-xl transition-all duration-300 hover:bg-seafoam/10 text-lg"
+            className="inline-block font-semibold px-8 py-4 rounded-xl text-base transition-all duration-250 hover:-translate-y-0.5 hover:bg-white/10"
+            style={{ border: "1.5px solid rgba(183,228,199,0.35)", color: "#b7e4c7" }}
           >
             Browse Directory →
           </Link>

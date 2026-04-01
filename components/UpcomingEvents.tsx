@@ -31,43 +31,68 @@ export default function UpcomingEvents() {
   ];
 
   const tabs = [
-    { id: "all",           label: "All Events" },
-    { id: "Healthcare",    label: "Healthcare" },
-    { id: "Employment",    label: "Employment" },
+    { id: "all", label: "All Events" },
+    { id: "Healthcare", label: "Healthcare" },
+    { id: "Employment", label: "Employment" },
     { id: "Food Programs", label: "Food Programs" },
   ];
 
   const categoryColors: Record<string, string> = {
-    Healthcare:      "#1b4965",
-    Employment:      "#3a2d6b",
+    Healthcare: "#1b4965",
+    Employment: "#3a2d6b",
     "Food Programs": "#2d6a4f",
   };
 
-  const filteredEvents = activeTab === "all" ? events : events.filter(e => e.category === activeTab);
-
-  const handleTabClick = (tabId: string) => {
-    setActiveTab(tabId);
-    eventsGridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const filteredEvents = activeTab === "all" ? events : events.filter((e) => e.category === activeTab);
 
   return (
-    <section ref={sectionRef} className="section-container bg-white">
-      <div className="mb-12">
-        <h2 className={`text-4xl md:text-5xl font-bold text-neutral-dark mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          View All Upcoming Events
-        </h2>
+    <section ref={sectionRef} className="section-container">
+      <div className="mb-10">
+        {/* Offset heading */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+          <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+            <span
+              className="text-xs font-semibold tracking-[0.16em] uppercase"
+              style={{ color: "#74c69d" }}
+            >
+              What's Happening
+            </span>
+            <h2
+              className="text-3xl md:text-4xl font-bold mt-3"
+              style={{ color: "#1a4d3e", fontFamily: "'Lora', Georgia, serif" }}
+            >
+              Upcoming Events
+            </h2>
+          </div>
 
-        {/* Tabs */}
-        <div className={`flex flex-wrap gap-3 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Link
+            href="/calendar"
+            className="hidden md:inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200"
+            style={{ color: "#2d6a4f" }}
+          >
+            View full calendar →
+          </Link>
+        </div>
+
+        {/* Tabs — same accent token, same radius, consistent everywhere */}
+        <div
+          className={`flex flex-wrap gap-2 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => handleTabClick(tab.id)}
-              className="px-5 py-2 rounded-lg font-semibold text-sm transition-all duration-300"
+              onClick={() => {
+                setActiveTab(tab.id);
+                eventsGridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200"
               style={{
-                background: activeTab === tab.id ? '#2d6a4f' : 'transparent',
-                color: activeTab === tab.id ? '#fff' : '#4a4e69',
-                border: `1.5px solid ${activeTab === tab.id ? '#2d6a4f' : 'rgba(116,198,157,0.4)'}`,
+                background: activeTab === tab.id ? "#2d6a4f" : "transparent",
+                color: activeTab === tab.id ? "#fff" : "#4a4e69",
+                boxShadow:
+                  activeTab === tab.id
+                    ? "0 4px 12px rgba(45,106,79,0.2)"
+                    : "0 0 0 1.5px rgba(116,198,157,0.35)",
               }}
             >
               {tab.label}
@@ -76,53 +101,64 @@ export default function UpcomingEvents() {
         </div>
       </div>
 
-      <div ref={eventsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div ref={eventsGridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredEvents.map((event, index) => (
           <div
             key={index}
-            className={`group bg-white border border-neutral-light/20 rounded-xl overflow-hidden transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            style={{ transitionDelay: `${index * 100}ms` }}
+            className={`group rounded-[1.25rem] overflow-hidden transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            style={{
+              transitionDelay: `${index * 80}ms`,
+              background: "#fefcf8",
+              boxShadow:
+                "0 1px 3px rgba(45,106,79,0.06), 0 4px 16px rgba(45,106,79,0.05), 0 0 0 1px rgba(116,198,157,0.12)",
+            }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.boxShadow = '0 20px 40px rgba(0,0,0,0.12)';
-              (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-5px)';
+              (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
+              (e.currentTarget as HTMLDivElement).style.boxShadow =
+                "0 2px 8px rgba(45,106,79,0.08), 0 16px 36px rgba(45,106,79,0.1), 0 0 0 1.5px rgba(116,198,157,0.18)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.boxShadow = '';
-              (e.currentTarget as HTMLDivElement).style.transform = '';
+              (e.currentTarget as HTMLDivElement).style.transform = "";
+              (e.currentTarget as HTMLDivElement).style.boxShadow =
+                "0 1px 3px rgba(45,106,79,0.06), 0 4px 16px rgba(45,106,79,0.05), 0 0 0 1px rgba(116,198,157,0.12)";
             }}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-44 overflow-hidden">
               <img
                 src={event.image}
                 alt={event.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
               <span
-                className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white uppercase tracking-wide"
-                style={{ background: categoryColors[event.category] || '#2d6a4f' }}
+                className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-bold text-white tracking-wide"
+                style={{ background: categoryColors[event.category] || "#2d6a4f" }}
               >
                 {event.category}
               </span>
             </div>
 
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-neutral-dark mb-3 group-hover:text-forest-dark transition-colors">
+            <div className="p-5">
+              <h3
+                className="text-base font-semibold mb-3 leading-snug"
+                style={{ color: "#1a4d3e", fontFamily: "'Lora', Georgia, serif" }}
+              >
                 {event.title}
               </h3>
-              <div className="space-y-2 text-sm text-neutral-medium mb-4">
-                <div className="flex items-center"><span className="mr-2">📅</span><span className="font-medium">{event.date}</span></div>
-                <div className="flex items-center"><span className="mr-2">🕐</span><span>{event.time}</span></div>
-                <div className="flex items-center"><span className="mr-2">📍</span><span>{event.location}</span></div>
+              <div className="space-y-1.5 text-xs mb-4" style={{ color: "#4a4e69" }}>
+                <div className="flex items-center gap-2"><span>📅</span><span className="font-medium">{event.date}</span></div>
+                <div className="flex items-center gap-2"><span>🕐</span><span>{event.time}</span></div>
+                <div className="flex items-center gap-2"><span>📍</span><span>{event.location}</span></div>
               </div>
-              <p className="text-neutral-medium text-sm mb-4 leading-relaxed">{event.description}</p>
+              <p className="text-xs leading-relaxed mb-4" style={{ color: "#8d99ae" }}>{event.description}</p>
               <Link
                 href="/calendar"
-                className="inline-flex items-center text-forest-dark font-semibold hover:text-sage transition-colors group/link"
+                className="inline-flex items-center gap-1 text-xs font-semibold transition-colors duration-200 group/link"
+                style={{ color: "#2d6a4f" }}
               >
                 Learn More
-                <svg className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-3 h-3 transition-transform duration-200 group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
             </div>
@@ -130,13 +166,20 @@ export default function UpcomingEvents() {
         ))}
       </div>
 
-      <div className={`text-center mt-12 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <button
-          onClick={() => { setActiveTab("all"); sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }}
-          className="inline-block bg-forest-medium hover:bg-forest-dark text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+      <div
+        className={`text-center mt-10 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+      >
+        <Link
+          href="/calendar"
+          className="inline-block font-semibold px-8 py-3.5 rounded-xl text-sm transition-all duration-250 hover:-translate-y-0.5 hover:shadow-lg"
+          style={{
+            background: "#2d6a4f",
+            color: "#fff",
+            boxShadow: "0 4px 16px rgba(45,106,79,0.2)",
+          }}
         >
           View All Events
-        </button>
+        </Link>
       </div>
     </section>
   );
