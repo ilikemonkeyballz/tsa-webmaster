@@ -63,7 +63,7 @@ export default function VolunteerPage() {
       {/* Header */}
       <div className={`bg-gradient-to-r from-forest-dark to-forest-medium text-white py-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
         <div className="section-container">
-          <h1 className="text-5xl font-bold mb-4">🙋 Volunteer Sign-Up</h1>
+          <h1 className="text-5xl font-bold mb-4">Volunteer Sign-Up</h1>
           <p className="text-xl text-mint">Make a difference — sign up to volunteer at community events</p>
           {user ? (
             <div className="mt-4 flex items-center gap-3 text-seafoam">
@@ -89,7 +89,9 @@ export default function VolunteerPage() {
             { icon: "/icons/star.png", title: "Log Hours", desc: "After the event, log your hours from your profile page." },
           ].map((step, i) => (
             <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-neutral-light/20 text-center">
-              <div className="text-4xl mb-3">{step.icon}</div>
+              <div className="flex justify-center mb-3">
+                <img src={step.icon} alt={step.title} className="w-12 h-12 object-contain" />
+              </div>
               <h3 className="text-lg font-bold text-neutral-dark mb-2">{step.title}</h3>
               <p className="text-sm text-neutral-medium">{step.desc}</p>
             </div>

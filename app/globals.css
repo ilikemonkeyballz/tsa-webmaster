@@ -13,155 +13,212 @@
   --color-neutral-dark: #2b2d42;
   --color-neutral-medium: #4a4e69;
   --color-neutral-light: #8d99ae;
-  --color-beige: #f5f2eb;
-  --color-beige-warm: #ede9df;
-  --color-mint-bg: #eef7f2;
-  --color-cream: #faf8f4;
-  --color-accent-orange: #d4714a;
-  --color-surface: #fefcf8;
+  --color-beige: #f2ede4;
+  --color-beige-warm: #ebe4d8;
+  --color-mint-bg: #eaf5ef;
+  --color-cream: #f7f3ec;
+  --color-surface: #fdfaf5;
+  --color-accent-orange: #c8603a;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* ── Base ───────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'DM Sans', system-ui, sans-serif;
-  background-color: #faf8f4;
+  background-color: #f7f3ec;
   color: #2b2d42;
-  background-image:
-    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(82, 183, 136, 0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 60% at 0% 100%, rgba(45, 106, 79, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 100% 60%, rgba(27, 73, 101, 0.03) 0%, transparent 50%);
   min-height: 100vh;
+  /* Top-center light source — the "sun" for the whole site */
+  background-image:
+    radial-gradient(ellipse 130% 55% at 50% -8%, rgba(116,198,157,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 50% at -5% 60%, rgba(45,106,79,0.05) 0%, transparent 48%),
+    radial-gradient(ellipse 60% 40% at 105% 70%, rgba(27,73,101,0.04) 0%, transparent 45%);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Lora', Georgia, serif;
   letter-spacing: -0.01em;
 }
 
+/* ── Shared easing token — #8 consistency ───────────── */
+:root {
+  --ease-spring: cubic-bezier(0.34, 1.48, 0.64, 1);   /* slight overshoot settle */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-hover:   260ms;
+  --dur-enter:   680ms;
+  /* Recurring visual motif: soft warm blob */
+  --blob-color:  rgba(116,198,157,0.13);
+}
+
+/* ── Layout ─────────────────────────────────────────── */
 .section-container {
   position: relative;
   z-index: 1;
   max-width: 80rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
 }
+@media (min-width: 640px)  { .section-container { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .section-container { padding-inline: 3rem; } }
 
-@media (min-width: 640px) {
-  .section-container { padding-left: 2rem; padding-right: 2rem; }
-}
-
-@media (min-width: 1024px) {
-  .section-container { padding-left: 3rem; padding-right: 3rem; }
-}
-
+/* ── Signature card surface (#1 #8) ─────────────────── */
+/*
+  Single card token used EVERYWHERE.
+  Lift + green-tint glow = the signature hover.
+  Overshoot spring = micro-surprise #4.
+*/
 .card {
-  background-color: #fefcf8;
-  border-radius: 1.25rem;
+  background: #fdfaf5;
+  border-radius: 1.375rem;
   box-shadow:
-    0 1px 3px rgba(45, 106, 79, 0.06),
-    0 4px 16px rgba(45, 106, 79, 0.05),
-    0 0 0 1px rgba(116, 198, 157, 0.12);
+    0 1px 2px rgba(45,106,79,0.05),
+    0 3px 12px rgba(45,106,79,0.06),
+    0 0 0 1px rgba(116,198,157,0.13);
   padding: 2rem;
-  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  transition:
+    box-shadow var(--dur-hover) var(--ease-out),
+    transform   var(--dur-hover) var(--ease-spring);
+  will-change: transform;
 }
-
 .card:hover {
   box-shadow:
-    0 2px 8px rgba(45, 106, 79, 0.08),
-    0 12px 32px rgba(45, 106, 79, 0.1),
-    0 0 0 1px rgba(116, 198, 157, 0.18);
-  transform: translateY(-4px);
+    0 0 0 1.5px rgba(116,198,157,0.22),
+    0 8px 24px rgba(45,106,79,0.10),
+    0 20px 48px rgba(45,106,79,0.08),
+    0 0 40px rgba(116,198,157,0.10);   /* glow bloom */
+  transform: translateY(-5px) scale(1.004); /* overshoot via spring easing */
 }
 
+/* ── Buttons (#1 #4 #8) ─────────────────────────────── */
 .btn-primary {
-  background-color: #2d6a4f;
-  color: white;
+  display: inline-block;
+  background: #2d6a4f;
+  color: #fff;
   font-weight: 600;
   padding: 0.9rem 2rem;
   border-radius: 0.875rem;
-  transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
   letter-spacing: 0.01em;
+  transition:
+    background var(--dur-hover) ease,
+    box-shadow  var(--dur-hover) ease,
+    transform   200ms var(--ease-spring);
+  box-shadow: 0 4px 14px rgba(45,106,79,0.22);
 }
-
 .btn-primary:hover {
-  background-color: #245c42;
-  box-shadow: 0 8px 24px rgba(45, 106, 79, 0.28);
-  transform: translateY(-2px);
+  background: #245c42;
+  box-shadow: 0 8px 28px rgba(45,106,79,0.32), 0 0 0 4px rgba(116,198,157,0.12);
+  transform: translateY(-2px) scale(1.02);  /* micro-spring */
 }
+.btn-primary:active { transform: translateY(0) scale(0.99); }
 
 .btn-secondary {
-  background-color: transparent;
+  display: inline-block;
+  background: transparent;
   color: #2d6a4f;
   font-weight: 600;
   padding: 0.875rem 1.875rem;
   border-radius: 0.875rem;
-  border: 1.5px solid rgba(116, 198, 157, 0.5);
-  transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.2s ease;
+  border: 1.5px solid rgba(116,198,157,0.45);
+  transition:
+    border-color var(--dur-hover) ease,
+    background   var(--dur-hover) ease,
+    transform    200ms var(--ease-spring);
 }
-
 .btn-secondary:hover {
   border-color: #74c69d;
-  background-color: rgba(116, 198, 157, 0.08);
-  transform: translateY(-2px);
+  background: rgba(116,198,157,0.09);
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-secondary:active { transform: translateY(0) scale(0.99); }
+
+/* ── Input focus glow (#4) ──────────────────────────── */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(116,198,157,0.3),
+    0 0 16px rgba(116,198,157,0.12);
+  transition: box-shadow 300ms ease;
 }
 
+/* ── Recurring visual motif: dot grid (#3) ──────────── */
+/*
+  Used in section backgrounds, card wells, empty states.
+  Always same dot color, same 28px grid.
+*/
+.motif-dots {
+  background-image: radial-gradient(circle, rgba(116,198,157,0.25) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.motif-dots-faint {
+  background-image: radial-gradient(circle, rgba(116,198,157,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Light source: directional glow helper (#2) ──────── */
+/*
+  Wrap important elements in .lit to get the
+  top-left warm bloom — consistent across the site.
+*/
+.lit {
+  position: relative;
+}
+.lit::before {
+  content: '';
+  position: absolute;
+  inset: -30% -20%;
+  background: radial-gradient(ellipse 60% 50% at 30% 30%, rgba(116,198,157,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Page hero (inner pages) ────────────────────────── */
 .page-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #1a4d3e 0%, #2d6a4f 50%, #1b4965 100%);
+  background: linear-gradient(135deg, #1a4d3e 0%, #2d6a4f 55%, #1b4965 100%);
 }
-
 .page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(82, 183, 136, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 80% at 80% 20%, rgba(95, 168, 211, 0.1) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(82,183,136,0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 80% 20%, rgba(95,168,211,0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
+/* ── Animations (#1 #8 uniform) ─────────────────────── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
-.animate-fadeInUp {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 4px 14px rgba(45,106,79,0.22); }
+  50%      { box-shadow: 0 4px 24px rgba(45,106,79,0.38), 0 0 0 5px rgba(116,198,157,0.1); }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.5s ease-out forwards;
+.animate-fadeInUp        { animation: fadeInUp var(--dur-enter) var(--ease-out) forwards; }
+.animate-fadeIn          { animation: fadeIn   500ms ease-out forwards; }
+.animate-fadeInUp-delay-1 { animation: fadeInUp var(--dur-enter) var(--ease-out) 0.14s forwards; opacity: 0; }
+.animate-fadeInUp-delay-2 { animation: fadeInUp var(--dur-enter) var(--ease-out) 0.28s forwards; opacity: 0; }
+.animate-fadeInUp-delay-3 { animation: fadeInUp var(--dur-enter) var(--ease-out) 0.42s forwards; opacity: 0; }
+
+/* Hero CTA button subtle pulse after load */
+.btn-hero-primary {
+  animation: pulseGlow 3s ease-in-out 1.5s 3;
 }
 
-.animate-fadeInUp-delay-1 {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
-  opacity: 0;
-}
-
-.animate-fadeInUp-delay-2 {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
-  opacity: 0;
-}
-
-.animate-fadeInUp-delay-3 {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
-  opacity: 0;
-}
-
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(116, 198, 157, 0.35); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(45, 106, 79, 0.5); }
+/* ── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: rgba(116,198,157,0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(45,106,79,0.45); }

@@ -99,7 +99,7 @@ export default function MapPage() {
     filtered.forEach((resource) => {
       const color = CATEGORY_COLORS[resource.category] || "#666";
       const icon = L.divIcon({
-        html: `<div style="background:${color};color:white;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"><span style="transform:rotate(45deg);font-size:16px">${resource.icon}</span></div>`,
+        html: `<div style="background:${color};color:white;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"><span style="transform:rotate(45deg);display:flex;align-items:center;justify-content:center;width:100%;height:100%"><img src="${resource.icon}" alt="" style="width:22px;height:22px;object-fit:contain;border-radius:50%" /></span></div>`,
         className: "", iconSize: [36, 36], iconAnchor: [18, 36], popupAnchor: [0, -40],
       });
 
@@ -108,7 +108,7 @@ export default function MapPage() {
         .bindPopup(`
           <div style="min-width:220px;font-family:sans-serif">
             <div style="background:${color};color:white;margin:-12px -12px 8px;padding:10px 12px;border-radius:4px 4px 0 0">
-              <strong style="font-size:13px">${resource.icon} ${resource.name}</strong>
+              <img src="${resource.icon}" alt="" style="width:20px;height:20px;object-fit:contain;border-radius:4px;display:inline-block;vertical-align:middle;margin-right:6px" /><strong style="font-size:13px;vertical-align:middle">${resource.name}</strong>
             </div>
             <span style="display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:11px;padding:2px 8px;border-radius:12px;margin-bottom:6px">${resource.category}</span>
             <p style="font-size:12px;color:#555;margin:4px 0">📍 ${resource.address}</p>
@@ -232,8 +232,8 @@ export default function MapPage() {
                       className={`w-full text-left p-4 border-b border-neutral-light/20 hover:bg-mint-bg transition-colors ${selectedResource?.id === resource.id ? "bg-mint-bg border-l-4 border-l-forest-medium" : ""}`}
                     >
                       <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white text-sm" style={{ backgroundColor: CATEGORY_COLORS[resource.category] || "#666" }}>
-                          {resource.icon}
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ backgroundColor: CATEGORY_COLORS[resource.category] || "#666" }}>
+                          <img src={resource.icon} alt="" className="w-6 h-6 object-contain rounded-full" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-semibold text-sm text-neutral-dark leading-tight">{resource.name}</p>
