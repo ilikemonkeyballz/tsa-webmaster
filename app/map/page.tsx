@@ -147,7 +147,7 @@ export default function MapPage() {
     <div className="min-h-screen bg-beige">
       <div className={`bg-gradient-to-r from-forest-dark to-forest-medium text-white py-16 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
         <div className="section-container">
-          <h1 className="text-5xl font-bold mb-4">🗺️ Resource Map</h1>
+          <h1 className="text-5xl font-bold mb-4">Resource Map</h1>
           <p className="text-xl text-mint">Find community resources near you across Bergen County</p>
           <p className="text-sm text-seafoam mt-2">{MAP_RESOURCES.length} organizations mapped • Click any pin for details</p>
         </div>

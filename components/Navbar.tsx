@@ -168,6 +168,14 @@ export default function Navbar() {
               About
             </Link>
 
+            <Link
+              href="/references"
+              className="px-4 py-2 font-medium rounded-lg hover:bg-mint-bg transition-colors duration-200"
+              style={{ color: "#4a4e69", fontSize: "0.9375rem" }}
+            >
+              References
+            </Link>
+
             {/* User Menu */}
             {user ? (
               <div
@@ -227,7 +235,7 @@ export default function Navbar() {
                         onClick={handleLogout}
                         className="w-full text-left flex items-center px-4 py-2.5 text-sm transition-colors duration-150 hover:bg-red-50 text-red-600"
                       >
-                        🚪 Sign Out
+                        Sign Out
                       </button>
                     </div>
                   </div>
@@ -291,7 +299,7 @@ export default function Navbar() {
               <div className="h-px bg-mint-bg my-1 mx-1" />
               {user ? (
                 <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-left text-red-600 hover:bg-red-50 font-medium py-2.5 px-4 rounded-xl transition-all duration-200 text-sm">
-                  🚪 Sign Out
+                  Sign Out
                 </button>
               ) : (
                 <Link href="/login" className="text-forest-dark hover:bg-mint-bg font-medium py-2.5 px-4 rounded-xl transition-all duration-200" onClick={() => setIsOpen(false)}>
